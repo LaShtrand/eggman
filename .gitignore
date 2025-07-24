@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite database
+*.db
+
+# VS Code settings
+.vscode/
+
+# Environment variables
+.env
+
+# Mac system files
+.DS_Store
+
+# PDF/HTML uploads and processed files
+uploads/
+processed/
+purchases/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Eggman specific
+num_chickens.txt

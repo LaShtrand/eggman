@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Number of Chickens</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      background: linear-gradient(120deg, #f9f6e7 0%, #ffe5ec 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background: #ffb703;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 1.2em;
+      box-shadow: 0 2px 8px #f7c87344;
+    }
+    nav a, nav form button {
+      color: #fff;
+      background: none;
+      border: none;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav form button:hover {
+      color: #e63946;
+    }
+    h2 {
+      text-align: center;
+      color: #e63946;
+      margin-top: 30px;
+    }
+    form {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #fffbe7;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #f7c87344;
+      padding: 30px 40px;
+      text-align: center;
+    }
+    label {
+      font-size: 1.2em;
+      color: #ffb703;
+      margin-bottom: 20px;
+      display: block;
+    }
+    input[type="number"] {
+      font-size: 1.1em;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid #ffb703;
+      margin-left: 10px;
+      width: 80px;
+    }
+    button {
+      background: #ffb703;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 1.1em;
+      margin: 10px 8px 0 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #e63946;
+    }
+    a {
+      color: #219ebc;
+      text-decoration: underline;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <nav style="margin-bottom: 20px;">
+    <a href="{{ url_for('index') }}">🥚 Egg Counts</a> |
+    <a href="{{ url_for('feed_purchases') }}">🍽️ Feed Purchases</a> |
+    <a href="{{ url_for('add_count') }}">➕ Add Egg Count</a> |
+    <a href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+  </nav>
+  <h2>🐔 Set Number of Chickens 🐔</h2>
+  <form method="post">
+    <label>Number of Chickens: <input type="number" name="num_chickens" value="{{ num_chickens }}" min="1" required></label>
+    <button type="submit">Save</button>
+    <a href="{{ url_for('dashboard') }}">Cancel</a>
+  </form>
+</body>
+</html>

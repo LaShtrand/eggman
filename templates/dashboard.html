@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Egg Dashboard</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      background: linear-gradient(120deg, #f9f6e7 0%, #ffe5ec 100%);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background: #ffb703;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 1.2em;
+      box-shadow: 0 2px 8px #f7c87344;
+    }
+    nav a, nav form button {
+      color: #fff;
+      background: none;
+      border: none;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    nav a:hover, nav form button:hover {
+      color: #e63946;
+    }
+    h2 {
+      text-align: center;
+      color: #e63946;
+      margin-top: 30px;
+    }
+    ul {
+      max-width: 500px;
+      margin: 30px auto;
+      background: #fffbe7;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #f7c87344;
+      padding: 30px 40px;
+      list-style: none;
+    }
+    ul li {
+      font-size: 1.2em;
+      margin: 18px 0;
+      display: flex;
+      align-items: center;
+    }
+    ul li b {
+      min-width: 220px;
+      display: inline-block;
+      color: #ffb703;
+    }
+    .egg-emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+    .chicken-emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+    .edit-link {
+      color: #219ebc;
+      text-decoration: underline;
+      margin-left: 10px;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      ul { padding: 15px 5px; }
+      nav { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <nav style="margin-bottom: 20px;">
+    <a href="{{ url_for('index') }}">🥚 Egg Counts</a> |
+    <a href="{{ url_for('feed_purchases') }}">🍽️ Feed Purchases</a> |
+    <a href="{{ url_for('add_count') }}">➕ Add Egg Count</a> |
+    <a href="{{ url_for('dashboard') }}">📊 Dashboard</a>
+  </nav>
+
+  <h2>🥚🐔 Egg Financial Dashboard 🐔🥚</h2>
+  <ul>
+    <li><span class="egg-emoji">🥚</span><b>Total Eggs Collected:</b> {{ total_eggs }}</li>
+    <li><span class="egg-emoji">💰</span><b>Total Feed Cost:</b> ${{ '%.2f'|format(total_cost) }}</li>
+    <li><span class="egg-emoji">📅</span><b>Eggs Collected (Last 7 Days):</b> {{ eggs_week }}</li>
+    <li><span class="egg-emoji">📅</span><b>Feed Cost (Last 7 Days):</b> ${{ '%.2f'|format(cost_week) }}</li>
+    <li><span class="egg-emoji">🧮</span><b>Cost Per Egg (Last 7 Days):</b> ${{ '%.2f'|format(cost_per_egg_week) }}</li>
+    <li><span class="egg-emoji">📅</span><b>Eggs Collected (Last 30 Days):</b> {{ eggs_month }}</li>
+    <li><span class="egg-emoji">📅</span><b>Feed Cost (Last 30 Days):</b> ${{ '%.2f'|format(cost_month) }}</li>
+    <li><span class="egg-emoji">🧮</span><b>Cost Per Egg (Last 30 Days):</b> ${{ '%.2f'|format(cost_per_egg_month) }}</li>
+    <li><span class="chicken-emoji">🐔</span><b>Number of Chickens:</b> {{ num_chickens }} <a class="edit-link" href="{{ url_for('set_chickens') }}">Edit</a></li>
+    <li><span class="chicken-emoji">🐔</span><b>Cost Per Chicken (All Time):</b> ${{ '%.2f'|format(cost_per_chicken) }}</li>
+  </ul>
+</body>
+</html>
